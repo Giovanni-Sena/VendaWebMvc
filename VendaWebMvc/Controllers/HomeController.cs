@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using VendaWebMvc.Models;
+using VendaWebMvc.Models.ViewModels;
 
 namespace VendaWebMvc.Controllers
 {
