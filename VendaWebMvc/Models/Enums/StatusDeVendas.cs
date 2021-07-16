@@ -4,6 +4,6 @@
     {
         Pendente = 0,
         Faturado = 1,
-        Cancelado
+        Cancelado = 2
     }
 }
