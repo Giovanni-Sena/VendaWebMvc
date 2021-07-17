@@ -19,7 +19,7 @@ namespace VendaWebMvc.Data
         public void PopularDb()
         {
             if(_context.Departamento.Any() || 
-                _context.Vendedors.Any() ||
+                _context.Vendedores.Any() ||
                 _context.HistoricoDeVendas.Any())
             {
                 return; // Informações já populadas.
@@ -32,7 +32,7 @@ namespace VendaWebMvc.Data
             HistoricoDeVendas histVend = new HistoricoDeVendas(1, new DateTime(2021, 07, 15), 100.00, StatusDeVendas.Faturado, vend);
 
             _context.Departamento.Add(dep);
-            _context.Vendedors.Add(vend);
+            _context.Vendedores.Add(vend);
             _context.HistoricoDeVendas.Add(histVend);
 
             _context.SaveChanges();

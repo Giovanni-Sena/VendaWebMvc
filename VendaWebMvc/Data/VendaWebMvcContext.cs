@@ -15,7 +15,7 @@ namespace VendaWebMvc.Data
         }
 
         public DbSet<VendaWebMvc.Models.Departamento> Departamento { get; set; }
-        public DbSet<VendaWebMvc.Models.Vendedor> Vendedors { get; set; }
+        public DbSet<VendaWebMvc.Models.Vendedor> Vendedores { get; set; }
         public DbSet<VendaWebMvc.Models.HistoricoDeVendas> HistoricoDeVendas { get; set; }
     }
 }

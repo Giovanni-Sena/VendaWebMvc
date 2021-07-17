@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VendaWebMvc.Data;
+using VendaWebMvc.Servicos;
 
 namespace VendaWebMvc
 {
@@ -40,6 +41,7 @@ namespace VendaWebMvc
                     options.UseMySql(Configuration.GetConnectionString("VendaWebMvcContext"), builder => builder.MigrationsAssembly("VendaWebMvc")));
 
             services.AddScoped<DbService>();
+            services.AddScoped < VendedorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
