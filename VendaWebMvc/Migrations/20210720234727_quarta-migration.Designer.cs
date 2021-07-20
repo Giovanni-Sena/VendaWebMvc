@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VendaWebMvc.Data;
 
 namespace VendaWebMvc.Migrations
 {
     [DbContext(typeof(VendaWebMvcContext))]
-    partial class VendaWebMvcContextModelSnapshot : ModelSnapshot
+    [Migration("20210720234727_quarta-migration")]
+    partial class quartamigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

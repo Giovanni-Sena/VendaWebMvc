@@ -12,6 +12,7 @@ namespace VendaWebMvc.Models
         public string Email { get; set; }
         public double Salary { get; set; }
         public Departamento Departamento { get; set; }
+        public int DepartamentoId { get; set; }
         public ICollection<HistoricoDeVendas> Vendas { get; set; } = new List<HistoricoDeVendas>();
 
         public Vendedor()
