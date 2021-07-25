@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace VendaWebMvc.Models
@@ -7,11 +8,20 @@ namespace VendaWebMvc.Models
     public class Vendedor
     {
         public int Id { get; set; }
+        [Display(Name = "Nome")]
         public string Name { get; set; }
+        [Display(Name ="Data")]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
+        [Display(Name="E-Mail")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Display(Name ="Salário")]
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public double Salary { get; set; }
+        [Display(Name ="Departamento")]
         public Departamento Departamento { get; set; }
+        [Display(Name ="Departamento")]
         public int DepartamentoId { get; set; }
         public ICollection<HistoricoDeVendas> Vendas { get; set; } = new List<HistoricoDeVendas>();
 
