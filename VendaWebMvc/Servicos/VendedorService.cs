@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using VendaWebMvc.Data;
 using VendaWebMvc.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace VendaWebMvc.Servicos
 {
@@ -29,7 +30,8 @@ namespace VendaWebMvc.Servicos
 
         public Vendedor EncontrarPorId(int id)
         {
-            return _context.Vendedores.FirstOrDefault(obj => obj.Id == id);
+            // Utilizando o Include com a blibioteca Microsoft.EntityFrameworkCore
+            return _context.Vendedores.Include(obj => obj.Departamento).FirstOrDefault(obj => obj.Id == id);
         }
 
         public void Remover(int id)

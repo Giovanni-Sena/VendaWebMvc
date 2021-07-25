@@ -60,5 +60,18 @@ namespace VendaWebMvc.Controllers
             _vendedorService.Remover(id);
             return RedirectToAction(nameof(Index));
         }
+        public IActionResult Detalhes (int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var obj = _vendedorService.EncontrarPorId(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
     }
 }

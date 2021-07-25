@@ -1,13 +1,10 @@
 ﻿@model VendaWebMvc.Models.Vendedor;
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Detalhes";
 }
 
 <h2>@ViewData["Title"]</h2>
-<h3>Realizar a exclusão do vendedor?</h3>
 <div>
-    <h4>Vendedor</h4>
-    <hr/>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -33,10 +30,15 @@
         <dd>
             @Html.DisplayFor(model => model.Salary)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.Name)
+        </dd>
     </dl>
-    <form asp-action="Deletar">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Deletar" class="btn btn-danger" />
-        <a asp-action="Index" class="btn btn-default">Voltar</a>
-    </form>
+</div>
+<div>
+    <a asp-action="Editar" asp-route-id="@Model.Id" class="btn btn-default">Editar</a>
+    <a asp-action="Index" class="btn btn-default">Voltar</a>
 </div>
