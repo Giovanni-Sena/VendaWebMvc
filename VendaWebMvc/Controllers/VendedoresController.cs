@@ -65,8 +65,15 @@ namespace VendaWebMvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Deletar(int id)
         {
-            await _vendedorService.RemoverAsync(id);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                await _vendedorService.RemoverAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch(IntegridadeDeExcecao e)
+            {
+                return RedirectToAction(nameof(Error), new { message = e.Message });
+            }
         }
         public async Task<IActionResult> Detalhes(int? id)
         {
