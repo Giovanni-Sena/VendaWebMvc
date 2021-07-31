@@ -33,5 +33,24 @@ namespace VendaWebMvc.Servicos
                 .OrderByDescending( x => x.Date)
                 .ToListAsync();
         }
+
+        public async Task<List<IGrouping<Departamento,HistoricoDeVendas>>> BuscaPorGrupoAsync(DateTime? dataMin, DateTime? dataMax)
+        {
+            var resultado = from obj in _context.HistoricoDeVendas select obj;
+            if (dataMin.HasValue)
+            {
+                resultado = resultado.Where(x => x.Date >= dataMin.Value);
+            }
+            if (dataMax.HasValue)
+            {
+                resultado = resultado.Where(x => x.Date <= dataMax.Value);
+            }
+            return await resultado
+                .Include(x => x.Vendedor) // Realizando o join com a tabela Vendedor.
+                .Include(x => x.Vendedor.Departamento) // Realizando o join com a tabela Departamento.
+                .OrderByDescending(x => x.Date)
+                .GroupBy(x => x.Vendedor.Departamento) // Realizado o agrupamento, incluido o IGrouping.
+                .ToListAsync();
+        }
     }
 }

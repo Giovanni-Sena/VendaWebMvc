@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace VendaWebMvc.Models
 {
     public class Departamento
     {
         public int Id { get; set; }
+        [Display(Name = "Nome")]
         public string Name { get; set; }
         public ICollection<Vendedor> Vendedores { get; set; } = new List<Vendedor>();
 
